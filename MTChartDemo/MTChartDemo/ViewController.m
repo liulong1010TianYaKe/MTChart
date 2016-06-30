@@ -20,20 +20,16 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     MTBarChartView *barChartView = [[MTBarChartView alloc] initWithFrame:CGRectMake(30, 50, self.view.bounds.size.width - 60, 350)];
-    barChartView.backgroundColor = [UIColor lightGrayColor];
+    barChartView.backgroundColor = [UIColor cyanColor];
 //    barChartView
     [self.view addSubview:barChartView];
+    barChartView.chartMarginLeft = 50;
+    barChartView.selectIndex = 4;
+    barChartView.xTitleArray = @[@"周天",@"周一",@"周二",@"周三",@"周四",@"周五",@"周六"];
+    barChartView.yTitleArray = @[@"SUM",@"MON",@"TUE",@"WEN",@"THU",@"FRI",@"SAT"];
+    barChartView.barMarkTitleArray = @[@"2342",@"661",@"6322",@"983",@"9873",@"889",@"8821"];
+    barChartView.isShowBarMarkTitle = YES;
     [barChartView drawChart];
-    
-    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
-    gradientLayer.bounds = CGRectMake(0, 0, 20, 200);
-    gradientLayer.position = CGPointMake(60, 400-200);
-    gradientLayer.anchorPoint = CGPointMake(0.5, 0);
-    gradientLayer.colors = @[(__bridge id)[UIColor orangeColor].CGColor,(__bridge id)[UIColor redColor].CGColor];
-    gradientLayer.startPoint = CGPointMake(0.5, 0);
-    gradientLayer.endPoint = CGPointMake(0.5, 1);
-    [self.view.layer addSublayer:gradientLayer];
-    
     
 }
 

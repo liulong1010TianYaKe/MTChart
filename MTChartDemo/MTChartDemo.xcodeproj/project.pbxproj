@@ -14,7 +14,6 @@
 		FD841C371D23A3F40048F6F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD841C361D23A3F40048F6F4 /* Assets.xcassets */; };
 		FD841C3A1D23A3F40048F6F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD841C381D23A3F40048F6F4 /* LaunchScreen.storyboard */; };
 		FD841C451D23A3F40048F6F4 /* MTChartDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD841C441D23A3F40048F6F4 /* MTChartDemoTests.m */; };
-		FD841C521D23A5740048F6F4 /* MTBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FD841C511D23A5740048F6F4 /* MTBar.m */; };
 		FD841C551D23AA7C0048F6F4 /* MTBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD841C541D23AA7C0048F6F4 /* MTBarChartView.m */; };
 /* End PBXBuildFile section */
 
@@ -42,8 +41,6 @@
 		FD841C401D23A3F40048F6F4 /* MTChartDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MTChartDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD841C441D23A3F40048F6F4 /* MTChartDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTChartDemoTests.m; sourceTree = "<group>"; };
 		FD841C461D23A3F40048F6F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FD841C501D23A5740048F6F4 /* MTBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBar.h; sourceTree = "<group>"; };
-		FD841C511D23A5740048F6F4 /* MTBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBar.m; sourceTree = "<group>"; };
 		FD841C531D23AA7C0048F6F4 /* MTBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBarChartView.h; sourceTree = "<group>"; };
 		FD841C541D23AA7C0048F6F4 /* MTBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBarChartView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,8 +118,6 @@
 		FD841C4F1D23A40F0048F6F4 /* MTChartView */ = {
 			isa = PBXGroup;
 			children = (
-				FD841C501D23A5740048F6F4 /* MTBar.h */,
-				FD841C511D23A5740048F6F4 /* MTBar.m */,
 				FD841C531D23AA7C0048F6F4 /* MTBarChartView.h */,
 				FD841C541D23AA7C0048F6F4 /* MTBarChartView.m */,
 			);
@@ -229,7 +224,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD841C521D23A5740048F6F4 /* MTBar.m in Sources */,
 				FD841C321D23A3F40048F6F4 /* ViewController.m in Sources */,
 				FD841C2F1D23A3F40048F6F4 /* AppDelegate.m in Sources */,
 				FD841C2C1D23A3F40048F6F4 /* main.m in Sources */,
@@ -424,6 +418,7 @@
 				FD841C4B1D23A3F40048F6F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FD841C4C1D23A3F40048F6F4 /* Build configuration list for PBXNativeTarget "MTChartDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +427,7 @@
 				FD841C4E1D23A3F40048F6F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
