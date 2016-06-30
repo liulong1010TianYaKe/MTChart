@@ -29,6 +29,7 @@
     barChartView.yTitleArray = @[@"SUM",@"MON",@"TUE",@"WEN",@"THU",@"FRI",@"SAT"];
     barChartView.barMarkTitleArray = @[@"2342",@"661",@"6322",@"983",@"9873",@"889",@"8821"];
     barChartView.isShowBarMarkTitle = YES;
+    barChartView.markTitleToBarDistance = 15;
     [barChartView drawChart];
     
 }

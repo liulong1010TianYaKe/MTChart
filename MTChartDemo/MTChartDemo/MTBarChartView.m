@@ -87,6 +87,7 @@
     _isShowBarMarkTitle = NO;
     _barMarkFont = [UIFont systemFontOfSize:10];
     _barMarkTitleColor = [UIColor whiteColor];
+    _markTitleToBarDistance = 15;
     
 }
 
@@ -128,18 +129,19 @@
     if (!_isShow_xAxis) {
         return;
     }
-    if(!_xLayer){
-        _xLayer = [CAShapeLayer layer];
-        [self.layer addSublayer:_xLayer];
-    }
+//    if(!_xLayer){
+//        _xLayer =
+//        [self.layer addSublayer:_xLayer];
+//    }
     
+    _xLayer = [CAShapeLayer layer];
     UIBezierPath *xPath = [UIBezierPath bezierPath];
     [xPath moveToPoint:_xAxisStartPoint];
     [xPath addLineToPoint:_xAxisEndPoint];
     _xLayer.path = xPath.CGPath;
     _xLayer.strokeColor = _axisColor.CGColor;
     _xLayer.lineWidth = _axisLineWidth;
-    
+    [self.layer addSublayer:_xLayer];
     
     // 创建y轴
     if(!_isShow_yAxis)
@@ -158,6 +160,7 @@
     _yLayer.path = yPath.CGPath;
     _yLayer.strokeColor = _axisColor.CGColor;
     _yLayer.lineWidth = _axisLineWidth;
+    
     
 }
 
@@ -251,18 +254,20 @@
         return;
     }
     
-    if(!_markTextLayer){
-        _markTextLayer = [CALayer layer];
-        [self.layer addSublayer:_markTextLayer];
-    }
+//    if(!_markTextLayer){
+//        _markTextLayer = [CALayer layer];
+//        [self.layer addSublayer:_markTextLayer];
+//    }
     if (_barMarkTitleArray.count > _selectIndex&&_barsPercent.count > _selectIndex) {
      
         NSString *markTitle = _barMarkTitleArray[_selectIndex];
         CALayer *barLayer = _gradientBarArrays[_selectIndex];
-        CGPoint point = CGPointMake(barLayer.position.x+_barWidth/2, barLayer.position.y - _maxBarYValue-_markTitleToBarDistance);
+        CGPoint point = CGPointMake(barLayer.position.x+_barWidth/2, barLayer.position.y - _maxBarYValue*[_barsPercent[_selectIndex] floatValue]-_markTitleToBarDistance);
+        _markTextLayer = [CALayer layer];
         _markTextLayer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"mark_icon"].CGImage);
         _markTextLayer.bounds = CGRectMake(0, 0, 35, 20);
         _markTextLayer.position = point;
+        [self.layer addSublayer:_markTextLayer];
         CATextLayer *textLayer = [CATextLayer layer];
         textLayer.string = markTitle;
         textLayer.bounds = CGRectMake(0, 0, 30, 16);
@@ -276,8 +281,6 @@
         _markContainerLayer = textLayer;
     }
    
-
-//    [_markTextLayer addSublayer:textLayer];
 
 }
 
@@ -302,22 +305,23 @@
 }
 
 
-//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-//    UITouch *touch = [touches anyObject];
-//    
-//    CGPoint touchPoint = [touch locationInView:self];
-//    
-//    CALayer *sublayer = [self.layer hitTest:touchPoint];
-//    
-//    if ([sublayer isKindOfClass:[CAGradientLayer class]]) {
-//        for (int i = 0; i < _gradientBarArrays.count; i++) {
-//            if ([sublayer isEqual:_gradientBarArrays[i]]) {
-//                self.selectIndex = i;
-//                [self drawChart];
-//            }
-//        }
-//    }
-//}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    UITouch *touch = [touches anyObject];
+    
+    CGPoint touchPoint = [touch locationInView:self];
+    
+    CALayer *sublayer = [self.layer hitTest:touchPoint];
+    
+//    [self drawChart];
+    if ([sublayer isKindOfClass:[CAGradientLayer class]]) {
+        for (int i = 0; i < _gradientBarArrays.count; i++) {
+            if ([sublayer isEqual:_gradientBarArrays[i]]) {
+                _selectIndex = i;
+                [self drawChart];
+            }
+        }
+    }
+}
 
 
 @end
